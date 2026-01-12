@@ -1,0 +1,48 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h1>Article Posts</h1>
+
+<div style="margin: 15px 0;">
+    <a href="{% url 'article_create' %}" class="btn">+ New Post</a>
+</div>
+
+{% for post in article %}
+    <article class="post-card">
+
+        <h2>
+            <a href="{% url 'article_detail' post.pk %}">
+                {{ post.title }}
+            </a>
+        </h2>
+
+        <div class="post-meta">
+            <strong>Category:</strong> {{ post.category }} |
+            <strong>Author:</strong> {{ post.user }} |
+            {{ post.created_at|date:"M d, Y" }}
+        </div>
+
+        <p>{{ post.content|truncatewords:25 }}</p>
+
+        <div style="margin-top: 12px;">
+            <a href="{% url 'article_detail' post.pk %}">Read more</a>
+
+            {% if user == post.user %}
+                | <a href="{% url 'article_update' post.pk %}">Edit</a>
+                | <a href="{% url 'article_delete' post.pk %}">Delete</a>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+                | <a href="{% url 'toggle_like' post.pk %}" class="like-btn">
+                    ❤️ {{ post.likes.count }}
+                </a>
+            {% else %}
+                | ❤️ {{ post.likes.count }}
+            {% endif %}
+        </div>
+
+    </article>
+{% empty %}
+    <p>No posts available.</p>
+{% endfor %}
+{% endblock %}

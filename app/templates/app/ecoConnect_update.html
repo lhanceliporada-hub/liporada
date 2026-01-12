@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Edit EcoConnect Post</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update</button>
+    <a href="{% url 'ecoConnect_detail' object.pk %}">Cancel</a>
+  </form>
+{% endblock content %}

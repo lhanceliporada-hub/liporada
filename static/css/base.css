@@ -1,0 +1,212 @@
+h1 {
+    color: #4ac1f7;
+}
+
+.mylogo{
+    height: 200px;
+    width: auto;
+}
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* BODY */
+body {
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #95f5ee;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #2e7d32;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #1b5e20;
+}
+
+/* POST CARD */
+.post-card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.post-card h2 {
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+/* LINKS */
+.post-card a {
+    color: #2e7d32;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.post-card a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
+    .navbar a {
+        display: block;
+        margin: 8px 0;
+    }
+}
+
+/* NAVBAR LAYOUT */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* LOGIN / LOGOUT BUTTONS */
+.navbar .btn-auth {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: white;
+    color: #2e7d32;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.navbar .btn-auth:hover {
+    background: #e8f5e9;
+}
+.navbar a.active {
+    text-decoration: underline;
+    border-bottom: 2px solid white;
+}
+
+/* DARK MODE */
+body.dark {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark .post-card {
+    background: #1e1e1e;
+    box-shadow: none;
+}
+
+body.dark .navbar {
+    background: #1b5e20;
+}
+
+body.dark a {
+    color: #90ee90;
+}
+/* NAVBAR ANIMATION */
+.navbar {
+    animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* LINK HOVER EFFECT */
+.navbar a {
+    position: relative;
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+/* LIKE BUTTON */
+.like-btn {
+    color: #e53935;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+}
+
+.like-btn:hover {
+    transform: scale(1.1);
+}

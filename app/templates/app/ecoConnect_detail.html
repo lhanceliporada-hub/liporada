@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>{{ object.title }}</h1>
+
+  <p><strong>Category:</strong> {{ object.category }}</p>
+  <p><strong>Posted by:</strong> {{ object.user }}</p>
+  <p><strong>Date:</strong> {{ object.created_at }}</p>
+
+  <hr>
+
+  <p>{{ object.content }}</p>
+
+  <hr>
+
+  <a href="{% url 'ecoConnect_update' object.pk %}">Edit</a> |
+  <a href="{% url 'ecoConnect_delete' object.pk %}">Delete</a> |
+  <a href="{% url 'ecoConnect_list' %}">Back to list</a>
+{% endblock content %}
